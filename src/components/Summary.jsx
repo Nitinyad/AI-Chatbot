@@ -3,7 +3,9 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import Loader from './Loader';
 
 const Summary = ({ file }) => {
-    const genAI = new GoogleGenerativeAI("AIzaSyDz-xvfiCR9RPqMp5a3YtVmxz2SON7c7jM");
+    const apikey = import.meta.env.VITE_API_KEY
+    console.log("apikey : " , apikey)
+    const genAI = new GoogleGenerativeAI(apikey);
     const model = genAI.getGenerativeModel({ model: 'models/gemini-1.5-flash' });
     const [summary, setSummary] = useState("");
     const [status , setStatus] = useState("idle");
