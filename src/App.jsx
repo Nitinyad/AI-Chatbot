@@ -2,6 +2,7 @@ import { useState } from "react"
 import FileUpload from "./components/FileUpload"
 import Header from "./components/Header"
 import Summary from "./components/Summary";
+import Chat from "./components/Chat";
 
 function App() {
 
@@ -15,7 +16,13 @@ function App() {
     <main className="container">
       <Header/>
       {
-        uploadedFile ? <Summary file = {uploadedFile}/> : <FileUpload setFile = {setUploadedFile}/>
+        uploadedFile ? 
+        <>
+        <Summary file = {uploadedFile}/> 
+        <Chat file = {uploadedFile}/>
+        </>
+        : 
+        <FileUpload setFile = {setUploadedFile}/>
       }
     </main>
     </>
